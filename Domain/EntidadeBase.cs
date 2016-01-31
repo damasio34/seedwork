@@ -3,113 +3,103 @@
 namespace Damasio34.Seedwork.Domain
 {
     /// <summary>
-    /// Base class for entities
+    ///     Base class for entities
     /// </summary>
-    public abstract class EntidadeBase
+    public abstract class EntidadeBase : IEntidadeBase
     {
+        #region Construtores
+
+        protected EntidadeBase()
+        {
+            Ativo = true;
+            DataDeCadastro = DateTime.Now;
+        }
+
+        #endregion
+
         #region Members
 
-        int? _requestedHashCode;
-        Guid _Id;
+        private int? _requestedHashCode;
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Get the persisten object identifier
+        ///     Get the persisten object identifier
         /// </summary>
-        public virtual Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            protected set
-            {
-                _Id = value;
-            }
-        }
+        public virtual Guid Id { get; protected set; }
+
+        public DateTime DataDeCadastro { get; protected set; }
+        public bool Ativo { get; protected set; }
 
         #endregion
 
         #region Public Methods
 
         /// <summary>
-        /// Check if this entity is transient, ie, without identity at this moment
+        ///     Check if this entity is transient, ie, without id at this moment
         /// </summary>
         /// <returns>True if entity is transient, else false</returns>
         public bool HasId()
         {
-            return this.Id == Guid.Empty;
+            return Id == Guid.Empty;
         }
 
         /// <summary>
-        /// Generate identity for this entity
+        ///     Generate id for this entity
         /// </summary>
-        public void GenerateNewIdentity()
+        public void GerarId()
         {
-            if (HasId()) this.Id = Guid.NewGuid();
+            if (HasId()) Id = Guid.NewGuid();
         }
 
         /// <summary>
-        /// Change current identity for a new non transient identity
+        ///     Change current id for a new non transient id
         /// </summary>
-        /// <param name="identity">the new identity</param>
-        public void ChangeCurrentIdentity(Guid identity)
+        /// <param name="id">the new id</param>
+        public void AlterarId(Guid id)
         {
-            if (identity != Guid.Empty) this.Id = identity;
+            if (id != Guid.Empty) Id = id;
         }
 
         #endregion
 
         #region Overrides Methods
 
-        /// <summary>
-        /// <see cref="M:System.Object.Equals"/>
-        /// </summary>
-        /// <param name="obj"><see cref="M:System.Object.Equals"/></param>
-        /// <returns><see cref="M:System.Object.Equals"/></returns>
         public override bool Equals(object obj)
         {
             if (obj == null || !(obj is EntidadeBase))
                 return false;
 
-            if (Object.ReferenceEquals(this, obj))
+            if (ReferenceEquals(this, obj))
                 return true;
 
-            var item = (EntidadeBase)obj;
+            var item = (EntidadeBase) obj;
 
-            if (item.HasId() || this.HasId())
+            if (item.HasId() || HasId())
                 return false;
-            else
-                return item.Id == this.Id;
+            return item.Id == Id;
         }
 
-        /// <summary>
-        /// <see cref="M:System.Object.GetHashCode"/>
-        /// </summary>
-        /// <returns><see cref="M:System.Object.GetHashCode"/></returns>
         public override int GetHashCode()
         {
             if (!HasId())
             {
                 if (!_requestedHashCode.HasValue)
-                    _requestedHashCode = this.Id.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
+                    _requestedHashCode = Id.GetHashCode() ^ 31;
+                        // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
 
                 return _requestedHashCode.Value;
             }
-            else
-                return base.GetHashCode();
-
+            return base.GetHashCode();
         }
 
         public static bool operator ==(EntidadeBase left, EntidadeBase right)
         {
-            if (Object.Equals(left, null))
-                return (Object.Equals(right, null)) ? true : false;
-            else
-                return left.Equals(right);
+            if (Equals(left, null))
+                return Equals(right, null) ? true : false;
+            return left.Equals(right);
         }
 
         public static bool operator !=(EntidadeBase left, EntidadeBase right)

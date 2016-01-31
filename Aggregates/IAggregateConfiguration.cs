@@ -7,7 +7,7 @@ namespace Damasio34.Seedwork.Aggregates
     public interface IAggregateConfiguration<T>
     {
         IAggregateConfiguration<T> HasMany<TMember>(Expression<Func<T, ICollection<TMember>>> memberExpression);
-        
+
         IAggregateConfiguration<T> HasMany<TMember>(
             Expression<Func<T, ICollection<TMember>>> memberExpression,
             Expression<Func<IAggregateConfiguration<TMember>, object>> memberConfiguration
@@ -20,5 +20,4 @@ namespace Damasio34.Seedwork.Aggregates
             Expression<Func<IAggregateConfiguration<TMember>, object>> memberConfiguration
             );
     }
-
 }

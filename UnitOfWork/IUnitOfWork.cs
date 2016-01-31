@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Linq;
 using Damasio34.Seedwork.Aggregates;
-using Damasio34.Seedwork.Repositorios.Queryable;
+using Damasio34.Seedwork.Repositories.Queryable;
 
 namespace Damasio34.Seedwork.UnitOfWork
 {
     public interface IUnitOfWork : IQueryableUnitOfWork, ISql, IDisposable
     {
+        /// <summary>
+        ///     Retorna a estratégia que será usada por um repositório para atualizar uma agregação em um Unit Of Work.
+        /// </summary>
+        IAggregateUpdateStrategy AggregateUpdateStrategy { get; }
+
         void RegisterNew<TEntidade>(TEntidade obj) where TEntidade : class;
         void RegisterDirty<TEntidade>(TEntidade obj) where TEntidade : class;
         void RegisterClean<TEntidade>(TEntidade obj) where TEntidade : class;
@@ -16,10 +21,5 @@ namespace Damasio34.Seedwork.UnitOfWork
         void Rollback();
 
         IQueryable<TEntidade> Set<TEntidade>() where TEntidade : class;
-
-        /// <summary>
-        ///     Retorna a estratégia que será usada por um repositório para atualizar uma agregação em um Unit Of Work.
-        /// </summary>
-        IAggregateUpdateStrategy AggregateUpdateStrategy { get; }
     }
 }

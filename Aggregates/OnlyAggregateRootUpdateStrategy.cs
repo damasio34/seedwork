@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using Damasio34.Seedwork.UnitOfWork;
 
 namespace Damasio34.Seedwork.Aggregates
@@ -9,11 +10,11 @@ namespace Damasio34.Seedwork.Aggregates
     /// </summary>
     public class OnlyAggregateRootUpdateStrategy : IAggregateUpdateStrategy
     {
-        public virtual void AlterarAgregacao<TAggRoot>(IUnitOfWork unitOfWork, TAggRoot aggRoot, System.Linq.Expressions.Expression<Func<IAggregateConfiguration<TAggRoot>, object>> aggregateConfiguration) where TAggRoot : class
+        public virtual void AlterarAgregacao<TAggRoot>(IUnitOfWork unitOfWork, TAggRoot aggRoot,
+            Expression<Func<IAggregateConfiguration<TAggRoot>, object>> aggregateConfiguration) where TAggRoot : class
         {
             if (unitOfWork == null) throw new ArgumentNullException("unitOfWork");
             unitOfWork.RegisterDirty(aggRoot);
         }
-
     }
 }
