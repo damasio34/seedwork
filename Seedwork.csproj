@@ -49,6 +49,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepositorioDoGrupo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Queryable\DefaultQueryBuilder.cs" />
+    <Compile Include="Repositories\Queryable\InvalidNavigationPropertyException.cs" />
     <Compile Include="Repositories\Queryable\IQueryableRepository.cs" />
     <Compile Include="Repositories\Queryable\IQueryableUnitOfWork.cs" />
     <Compile Include="Repositories\Queryable\IQueryBuilder.cs" />
