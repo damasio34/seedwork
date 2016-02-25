@@ -13,6 +13,14 @@ namespace Damasio34.Seedwork.Domain
         {
             Ativo = true;
             DataDeCadastro = DateTime.Now;
+            this.GerarId();
+        }
+
+        protected EntidadeBase(Guid id)
+        {
+            Ativo = true;
+            DataDeCadastro = DateTime.Now;
+            this.Id = id;
         }
 
         #endregion
@@ -51,7 +59,7 @@ namespace Damasio34.Seedwork.Domain
         /// </summary>
         public void GerarId()
         {
-            if (HasId()) Id = Guid.NewGuid();
+            this.Id = Guid.NewGuid();
         }
 
         /// <summary>
@@ -60,7 +68,7 @@ namespace Damasio34.Seedwork.Domain
         /// <param name="id">the new id</param>
         public void AlterarId(Guid id)
         {
-            if (id != Guid.Empty) Id = id;
+           this.Id = id;
         }
 
         #endregion
