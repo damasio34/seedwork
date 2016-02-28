@@ -49,7 +49,7 @@
     <Compile Include="Domain\IEntidadeDoGrupo.cs" />
     <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="Extensions\DecimalExtension.cs" />
-    <Compile Include="Extensions\EntityBaseExtension.cs" />
+    <Compile Include="Extensions\EntidadeBaseExtension.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\GuidExtension.cs" />
     <Compile Include="Extensions\Int32Extension.cs" />
