@@ -48,28 +48,28 @@ namespace Damasio34.Seedwork.Repositories
 
         #region ' IReadonlyRepository '
 
-        public IQueryable<TOutput> Listar<TOutput>(ICriteria<TEntidade, TOutput> criterio)
+        public virtual IQueryable<TOutput> Listar<TOutput>(ICriteria<TEntidade, TOutput> criterio)
         {
             return criterio.MeetCriteria(BaseQuery);
         }
 
-        public IQueryable<TEntidade> Listar()
+        public virtual IQueryable<TEntidade> Listar()
         {
             return BaseQuery;
         }
 
-        public IQueryable<TReturn> Listar<TOutput, TReturn>(ICriteria<TEntidade, TOutput> criterio,
+        public virtual IQueryable<TReturn> Listar<TOutput, TReturn>(ICriteria<TEntidade, TOutput> criterio,
             Expression<Func<TOutput, TReturn>> output)
         {
             return criterio.MeetCriteria(BaseQuery).Select(output);
         }
 
-        public TOutput Selecionar<TOutput>(ICriteria<TEntidade, TOutput> criterio)
+        public virtual TOutput Selecionar<TOutput>(ICriteria<TEntidade, TOutput> criterio)
         {
             return criterio.MeetCriteria(BaseQuery).SingleOrDefault();
         }
 
-        public TReturn Selecionar<TOutput, TReturn>(ICriteria<TEntidade, TOutput> criterio,
+        public virtual TReturn Selecionar<TOutput, TReturn>(ICriteria<TEntidade, TOutput> criterio,
             Expression<Func<TOutput, TReturn>> output)
         {
             return criterio.MeetCriteria(BaseQuery).Select(output).SingleOrDefault();
