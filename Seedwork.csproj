@@ -47,6 +47,14 @@
     <Compile Include="Domain\IAutenticacao.cs" />
     <Compile Include="Domain\IEntidadeBase.cs" />
     <Compile Include="Domain\IEntidadeDoGrupo.cs" />
+    <Compile Include="Extensions\DateTimeExtension.cs" />
+    <Compile Include="Extensions\DecimalExtension.cs" />
+    <Compile Include="Extensions\EntityBaseExtension.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\GuidExtension.cs" />
+    <Compile Include="Extensions\Int32Extension.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Extensions\UInt32Extension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepositorioDoGrupo.cs" />
     <Compile Include="Repositories\IRepository.cs" />

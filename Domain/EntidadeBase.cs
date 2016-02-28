@@ -7,7 +7,7 @@ namespace Damasio34.Seedwork.Domain
     /// </summary>
     public abstract class EntidadeBase : IEntidadeBase
     {
-        #region Construtores
+        #region [ Contrutores ]
 
         protected EntidadeBase()
         {
@@ -25,13 +25,13 @@ namespace Damasio34.Seedwork.Domain
 
         #endregion
 
-        #region Members
+        #region [ Atributos ]
 
         private int? _requestedHashCode;
 
         #endregion
 
-        #region Properties
+        #region [ Propriedades ]
 
         /// <summary>
         ///     Get the persisten object identifier
@@ -43,7 +43,7 @@ namespace Damasio34.Seedwork.Domain
 
         #endregion
 
-        #region Public Methods
+        #region [ Métodos públicos ]
 
         /// <summary>
         ///     Check if this entity is transient, ie, without id at this moment
@@ -73,7 +73,7 @@ namespace Damasio34.Seedwork.Domain
 
         #endregion
 
-        #region Overrides Methods
+        #region [ Métodos Overrides ]
 
         public override bool Equals(object obj)
         {
