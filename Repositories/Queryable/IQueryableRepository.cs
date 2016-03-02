@@ -12,6 +12,10 @@ namespace Damasio34.Seedwork.Repositories.Queryable
 
         IQueryable<TEntidade> BaseQuery { get; }
 
+        int Contar(Expression<Func<TEntidade, bool>> @where = null);
+
+        bool Existe(Expression<Func<TEntidade, bool>> criterio);
+
         IQueryable<TEntidade> Listar(
             Expression<Func<TEntidade, bool>> @where = null,
             Func<IQueryable<TEntidade>, IOrderedQueryable<TEntidade>> orderBy = null,
@@ -21,6 +25,9 @@ namespace Damasio34.Seedwork.Repositories.Queryable
             Expression<Func<TEntidade, TOutput>> output,
             Expression<Func<TEntidade, bool>> @where = null,
             Func<IQueryable<TEntidade>, IOrderedQueryable<TEntidade>> orderBy = null);
+
+        TOutput Max<TOutput>(Expression<Func<TEntidade, TOutput>> output,
+            Expression<Func<TEntidade, bool>> @where);
 
         /// <summary>
         ///     Retorna um único objeto do reposítorio.
