@@ -12,8 +12,7 @@ namespace Damasio34.Seedwork.Domain
         protected EntidadeBase()
         {
             Ativo = true;
-            DataDeCadastro = DateTime.Now;
-            this.GerarId();
+            DataDeCadastro = DateTime.Now;            
         }
 
         protected EntidadeBase(Guid id)
@@ -37,7 +36,6 @@ namespace Damasio34.Seedwork.Domain
         ///     Get the persisten object identifier
         /// </summary>
         public virtual Guid Id { get; protected set; }
-
         public DateTime DataDeCadastro { get; protected set; }
         public bool Ativo { get; protected set; }
 
@@ -59,7 +57,7 @@ namespace Damasio34.Seedwork.Domain
         /// </summary>
         public void GerarId()
         {
-            this.Id = Guid.NewGuid();
+            if (this.HasId()) this.Id = Guid.NewGuid();
         }
 
         /// <summary>
