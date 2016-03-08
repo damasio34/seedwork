@@ -21,7 +21,7 @@ namespace Damasio34.Seedwork.Repositories
 
         #endregion
 
-        protected void AlterarAgregacao(TEntidade item,
+        protected virtual void AlterarAgregacao(TEntidade item,
             Expression<Func<IAggregateConfiguration<TEntidade>, object>> aggregateConfiguration)
         {
             UnitOfWork.AggregateUpdateStrategy.AlterarAgregacao(UnitOfWork, item, aggregateConfiguration);

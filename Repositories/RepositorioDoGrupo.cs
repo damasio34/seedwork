@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using Damasio34.Seedwork.Aggregates;
 using Damasio34.Seedwork.Domain;
 using Damasio34.Seedwork.UnitOfWork;
 
@@ -52,6 +53,14 @@ namespace Damasio34.Seedwork.Repositories
             if (item == null) throw new ArgumentNullException("item");
             item.IdGrupo = IdGrupo;
             base.Excluir(item);
+        }
+
+        protected override void AlterarAgregacao(TEntidade item,
+            Expression<Func<IAggregateConfiguration<TEntidade>, object>> aggregateConfiguration)
+        {
+            if (item == null) throw new ArgumentNullException("item");
+            item.IdGrupo = IdGrupo;
+            base.AlterarAgregacao(item, aggregateConfiguration);
         }
 
         /// <summary>
