@@ -50,6 +50,7 @@
     <Compile Include="Domain\IEntidadeDoGrupo.cs" />
     <Compile Include="Exceptions\SpecificationException.cs" />
     <Compile Include="Exceptions\DomainException.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Exceptions\InvalidNavigationPropertyException.cs" />
     <Compile Include="Extensions\DateTimeExtension.cs" />
