@@ -6,5 +6,10 @@
         {
             return entidade == null;
         }
+
+        public static bool IsNotNull<IEntidadeBase>(this IEntidadeBase entidade)
+        {
+            return entidade != null;
+        }
     }
 }
