@@ -41,12 +41,15 @@
     <Compile Include="Aggregates\OnlyAggregateRootUpdateStrategy.cs" />
     <Compile Include="Criterias\Criteria.cs" />
     <Compile Include="Criterias\ICriteria.cs" />
+    <Compile Include="Domain\IDtoBase.cs" />
     <Compile Include="Domain\EntidadeDoGrupo.cs" />
     <Compile Include="Domain\EntidadeBase.cs" />
     <Compile Include="Domain\Grupo.cs" />
     <Compile Include="Domain\IAutenticacao.cs" />
     <Compile Include="Domain\IEntidadeBase.cs" />
     <Compile Include="Domain\IEntidadeDoGrupo.cs" />
+    <Compile Include="Exceptions\SpecificationException.cs" />
+    <Compile Include="Exceptions\DomainException.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Exceptions\InvalidNavigationPropertyException.cs" />
     <Compile Include="Extensions\DateTimeExtension.cs" />

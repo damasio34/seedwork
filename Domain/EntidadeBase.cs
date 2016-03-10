@@ -7,7 +7,7 @@ namespace Damasio34.Seedwork.Domain
     /// </summary>
     public abstract class EntidadeBase : IEntidadeBase
     {
-        #region [ Contrutores ]
+        #region [ Construtores ]
 
         protected EntidadeBase()
         {
