@@ -1,5 +1,4 @@
 D:\Repositorios\github\damasio34\seedwork\bin\Debug\Damasio34.Seedwork.dll
 D:\Repositorios\github\damasio34\seedwork\bin\Debug\Damasio34.Seedwork.pdb
-D:\Repositorios\github\damasio34\seedwork\obj\Debug\Seedwork.csprojResolveAssemblyReference.cache
 D:\Repositorios\github\damasio34\seedwork\obj\Debug\Damasio34.Seedwork.dll
 D:\Repositorios\github\damasio34\seedwork\obj\Debug\Damasio34.Seedwork.pdb

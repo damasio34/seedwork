@@ -35,7 +35,7 @@ namespace Damasio34.Seedwork.Domain
         /// <summary>
         ///     Get the persisten object identifier
         /// </summary>
-        public virtual Guid Id { get; protected set; }
+        public virtual Guid Id { get; set; }
         public DateTime DataDeCadastro { get; protected set; }
         public bool Ativo { get; protected set; }
 
