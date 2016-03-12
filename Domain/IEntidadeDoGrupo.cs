@@ -4,7 +4,6 @@ namespace Damasio34.Seedwork.Domain
 {
     public interface IEntidadeDoGrupo : IEntidadeBase
     {
-        Guid IdGrupo { get; }
-        Grupo Grupo { get; }
+        Guid IdGrupo { get; }        
     }
 }
